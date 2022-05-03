@@ -36,12 +36,28 @@ public function admincat(){
             return redirect('../admin-cat');
         } 
     }
+    public function editblogyAction(Request $request ,$id){
+
+        if ($_POST['action'] == 'Edit') {
+        $blogname = $request->input('blogname');
+        $blogcontent = $request->input('blogdesc');
+        DB::update('update blog set blogname = ?, blogcontent = ? where id = ?',[$blogname,$blogcontent,$id]);
+        return redirect('../admin-blog');
+        }
+        
+        if ($_POST['action'] == 'Cancel') {
+            return redirect('../admin-blog');
+        } 
+    }
 
     public function deleteCategory($id) {
         DB::delete('delete from categories where id = ?',[$id]);
         return redirect('../admin-cat');
      }
-
+  public function deleteblog($id) {
+        DB::delete('delete from blog where id = ?',[$id]);
+        return redirect('../admin-blog');
+     }
 
      public function createCategory(){
         return view('adm.categories.create');
