@@ -67,9 +67,9 @@ public function admincat(){
     }
     public function storeblog(){
         if ($_POST['action'] == 'Create') {
-            $category = new Category();
-            $category->blogname = request('blogname');
-            $category->blogcontent = request('blogcontent');
+            $blog = new blog();
+            $blog->blogname = request('blogname');
+            $blog->blogcontent = request('blogcontent');
             $category->save();
             return redirect('../admin-blog');
         }
