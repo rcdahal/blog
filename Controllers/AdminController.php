@@ -71,6 +71,19 @@ public function admincat(){
     }
 
     public function storeCategory(){
+       $rules = array(
+            'categoryname' => 'required',
+            'categorydesc' => 'required',
+            'image' => 'required',
+            
+    );
+
+    $validator = Validator::make($request->all(), $rules);
+
+    if ($validator->fails())
+    {
+        return Redirect::to('/admin_cat')->withInput()->withErrors($validator);
+    }else{
         if ($_POST['action'] == 'Create') {
             $category = new Category();
             $category->categoryname = request('categoryname');
@@ -83,17 +96,35 @@ public function admincat(){
             return redirect('../admin-cat');
         }
     }
+    }
     public function storeblog(){
+       $rules = array(
+            'blogname' => 'required',
+            'blogcontent' => 'required',
+            'category' => 'required',
+            'author' => 'required',
+            
+    );
+
+    $validator = Validator::make($request->all(), $rules);
+
+    if ($validator->fails())
+    {
+        return Redirect::to('/admin_blog')->withInput()->withErrors($validator);
+    }else{
         if ($_POST['action'] == 'Create') {
             $blog = new blog();
             $blog->blogname = request('blogname');
             $blog->blogcontent = request('blogcontent');
-            $category->save();
+            $blog->catagory=request('catagory');
+            $blog->author=request('author');
+            $blog->save();
             return redirect('../admin-blog');
         }
         if ($_POST['action'] == 'Cancel') {
             return redirect('../admin-blog');
         }
+    }
     }
 
 
