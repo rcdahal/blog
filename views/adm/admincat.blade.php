@@ -1,5 +1,5 @@
 @extends('adm.masteradmin')
-@section('title', 'Laravel Questionaire')
+@section('title', 'Blog Application')
 @section('contentadmin')
 
 	<div class="container-fluid" style="margin-left:50px;">
