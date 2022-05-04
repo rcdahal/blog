@@ -31,9 +31,4 @@
  
     </form>  
    
-    <script>
-    $(document).ready(function(e){
-    $('.leftMenu .quiz').addClass('selected');
-    });
-</script>
 @endsection
