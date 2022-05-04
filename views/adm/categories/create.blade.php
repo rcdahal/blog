@@ -1,5 +1,5 @@
 @extends('adm.masteradmin')
-@section('title', 'Laravel Questionaire | Create Category')
+@section('title', 'Blog Application | Create Category')
 @section('contentadmin')
  
 
