@@ -41,7 +41,9 @@ public function admincat(){
         if ($_POST['action'] == 'Edit') {
         $blogname = $request->input('blogname');
         $blogcontent = $request->input('blogdesc');
-        DB::update('update blog set blogname = ?, blogcontent = ? where id = ?',[$blogname,$blogcontent,$id]);
+        $category = $request->input('category');
+        $author = $request->input('author');
+        DB::update('update blog set blogname = ?, blogcontent = ?,category =?,author=? $ where id = ?',[$blogname,$blogcontent,$category,$author,$id]);
         return redirect('../admin-blog');
         }
         
