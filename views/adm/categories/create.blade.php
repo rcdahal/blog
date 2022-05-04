@@ -5,6 +5,11 @@
 
 
     <h3>Create New Categories</h3>
+    @if($errors->has())
+  @foreach ($errors->all() as $error)
+  <p class="yellow-text">{{ $error }}</p>
+  @endforeach
+  @endif
 
     <form method="POST" action="/create-category-action">
  
